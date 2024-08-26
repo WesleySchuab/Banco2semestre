@@ -17,3 +17,13 @@ CREATE TABLE FUNCIONARIOS (
 -- Day, Month, Yeaar
 SET DATEFORMAT DMY;
 GO
+
+-- Inserir dados na tabela
+INSERT INTO FUNCIONARIOS (
+	ID,
+	Nome,
+	Sexo,
+	Admissao,
+	Salario)
+VALUES (1, 'Maria da Silva', 'F', '10/01/2018', 2500);
+GO
