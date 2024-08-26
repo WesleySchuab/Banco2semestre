@@ -13,3 +13,7 @@ CREATE TABLE FUNCIONARIOS (
 	Admissao DATE NOT NUll,
 	Salario Decimal(10,2) NOT NULL
 );
+
+-- Day, Month, Yeaar
+SET DATEFORMAT DMY;
+GO
