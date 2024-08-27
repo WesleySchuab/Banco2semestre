@@ -52,8 +52,12 @@ GO
 SELECT TOP 3 * FROM FUNCIONARIOS;
 GO
 
+--SELECT * FROM FUNCIONARIOS
+--WHERE Sexo = 'M' AND Salario > 1000;
+--GO
+
 SELECT * FROM FUNCIONARIOS
-WHERE Sexo = 'M' AND Salario > 1000;
+ORDER BY Nome;
 GO
 
 --SELECT ID AS 'Codigo do funcionário',
