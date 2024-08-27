@@ -48,11 +48,20 @@ GO
 
 INSERT INTO FUNCIONARIOS VALUES (8, 'Tiago lima', 'M', '12/10/2014', 990.00);
 GO
-SELECT ID AS 'Codigo do funcionário',
-    Nome,
-    Sexo,
-    Salario AS 'Salarios'
-FROM FUNCIONARIOS;
+
+SELECT TOP 3 * FROM FUNCIONARIOS;
 GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Sexo = 'M' AND Salario > 1000;
+GO
+
+--SELECT ID AS 'Codigo do funcionário',
+  --  Nome,
+   -- Sexo,
+   -- Salario AS 'Salarios'
+--FROM FUNCIONARIOS;
+--GO
+
 --SELECT * FROM FUNCIONARIOS;
 --GO
