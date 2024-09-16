@@ -7,4 +7,6 @@ COLUNA
 TABELA
 CONDIÇÃO
 
+
+
 ![DigramaTeste drawio](https://github.com/user-attachments/assets/89790ff7-9dd2-4552-9833-c4ce7d81f078)
