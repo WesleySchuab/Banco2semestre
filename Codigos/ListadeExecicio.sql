@@ -39,9 +39,8 @@ INSERT INTO CLIENTES VALUES
 'marcos@gmail.com');
 GO
 
--- Erro devido o valor da idade ser menor que 18
 INSERT INTO CLIENTES VALUES
-    (2, 'Andre Luis', 'M', 15, '333333333333',
+    (2, 'Andre Luis', 'M', 15, '33333333333',
 'andre@gmail.com');
 GO
 
