@@ -10,3 +10,8 @@ CONDIÇÃO
 
 Exemplo de retorno do código inserido
 ![image](https://github.com/user-attachments/assets/e9c85bc1-6751-41e6-a40d-3980a040d009)
+
+Inserindo primeiro registro no banco
+
+![Captura de tela 2024-09-16 213836](https://github.com/user-attachments/assets/42307cb9-6100-4f64-a59c-3ff52ad5f5eb)
+
