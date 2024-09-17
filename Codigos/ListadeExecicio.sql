@@ -39,21 +39,25 @@ INSERT INTO CLIENTES VALUES
 'marcos@gmail.com');
 GO
 
+-- Erro devido a o valor da idade ser menor que 18
 INSERT INTO CLIENTES VALUES
     (2, 'Andre Luis', 'M', 15, '33333333333',
 'andre@gmail.com');
 GO
 
+-- OK, registros inseridos normalmente 
 INSERT INTO CLIENTES VALUES
     (2, 'Maria Clara', 'M', 22, '4444444444444',
 'maria@gmail.com');
 GO
 
+-- Erro devido a o valor do cpf
 INSERT INTO CLIENTES VALUES
     (2, 'Pedro Augusto', 'M', 45, '11111111111',
 'pedro@gmail.com');
 GO
 
+-- Erro devido a o valor do CPf ser nulo
 INSERT INTO CLIENTES VALUES
     (2, 'Ricardo Lima', 'M', 52, NULL,
 'ricardo@gmail.com');
@@ -71,11 +75,12 @@ INSERT INTO CLIENTES VALUES
 GO
 
 -- Maneira de inserir campso com valor DEFAULT
-INSERT INTO CLIENTES VALUES
+INSERT INTO CLIENTES 
 (ID, Nome, Sexo, Idade, CPF )
     VALUES (9, 'Daphne Lima', 'F', 32,
     '99999999');
 GO
+
 
 -- Exibi todos os registros da tabela Clientes
 SELECT * FROM CLIENTES;
