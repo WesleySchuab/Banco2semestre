@@ -1,19 +1,15 @@
 -- Cria o banco de dados LojaIFSP
 -- Cria o banco de dados ou habilita seu contexto
-IF DB_ID (N'LojaIFSP') is NULL 
-    CREATE DATABASE LojaIFSP;
+-- houve um erro na hora de inserir o comando abaixo
+-- Para funcionar selecionei apenas a linha 
+-- CREATE DATABASE LojaIFSP3024865;
+-- e depois 
+ -- USE LojaIFSP3024865;
+IIF DB_ID (N'LojaIFSP3024865') IS NULL 
+    CREATE DATABASE LojaIFSP3024865;
 ELSE 
-    USE LojaIFSP;
+    USE LojaIFSP3024865;
 GO
---Ebxbi a data da criação e o nome das tabelas que existem no banoc de dados em uso
-SELECT create_date AS 'Data de Criação',
-    name AS 'Nome da Tabela'
-FROM sys.tables;
-GO
-
--- Cria a tabela para armazenar os clientes
--- Observe a maneira como são criadas as restrições
-
 CREATE TABLE CLIENTES (
     ID INT PRIMARY KEY,
     Nome VARCHAR(50) NOT NULL,
@@ -23,7 +19,13 @@ CREATE TABLE CLIENTES (
     Email VARCHAR(200) DEFAULT 'meuemail@email.com' NOT NULL
     
 );
+
+--Exibi a data da criação e o nome das tabelas que existem no banoc de dados em uso
+SELECT create_date AS 'Data de Criação',
+    name AS 'Nome da Tabela'
+FROM sys.tables;
 GO
+
 -- Verifica a inserção dos registros com restrições
 -- OK, registros inseridos normalmente 
 INSERT INTO CLIENTES VALUES
@@ -100,5 +102,10 @@ INSERT INTO CLIENTES VALUES
 'tiago@yahoo.com.br'),
     (12, 'Maria Pereira', 'F', 45, '30303030303',
     'maria@bol.com.br');
-GO    
+GO 
+-- Verifica a estrutura da tabela usando o comando
+-- sp_help
+EXEC sp_help 'CLIENTES';
+GO
+
 
