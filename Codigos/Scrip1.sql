@@ -166,3 +166,66 @@ SELECT create_date AS 'DAta de Criação',
 	name AS 'Nome da Tabela'
 FROM sys.tables;
 GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Sexo <> 'M';
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Sexo != 'M';
+GO
+
+-- Roda duas vezes é lento
+SELECT * FROM FUNCIONARIOS
+WHERE NOT Sexo = 'M';
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Salario >= 1000 AND 
+Salario <= 1800;
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Salario BETWEEN  1000 AND 1800;
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Telefone IS NULL;
+GO
+---------
+Operador existentes
+IF EXISTS(
+	SELECT * FROM FUNCIONARIOS
+	WHERE Salario > 2000
+)
+	PRINT 'Alguem recebe acima de 200';
+ELSE
+	PRINT 'Ninguem recebe acima de 200'
+GO
+
+------------
+-- Operador IN
+SELECT * FROM FUNCIONARIOS
+WHERE ID = 1 ORDER	
+	ID = 2 ORDER
+	ID = 5;
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE ID IN (1,2,5);
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE Salario IN ( SELECT Salario FROM FUNCIONARIOS WHERE Salario > 2000.00
+);
+GO
+
+-- Exibe funcionário cujo o nome começa com M
+SELECT * FROM FUNCIONARIOS
+WHERE Nome LIKE 'M%';
+GO
+
+SELECT * FROM FUNCIONARIOS
+WHERE UPPER(Nome) LIKE '%SILVA%'
+ORDER BY Nome;
+GO
