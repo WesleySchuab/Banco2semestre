@@ -229,3 +229,61 @@ SELECT * FROM FUNCIONARIOS
 WHERE UPPER(Nome) LIKE '%SILVA%'
 ORDER BY Nome;
 GO
+
+USE Empresacj3024865;
+GO
+
+-- Criando uma VIEW
+-- Utlisando aliases para algumas colunas.
+
+CREATE VIEW MaioresSalarios AS
+    SELECT ID AS 'Código do funcionário',
+        Nome,
+        Sexo,
+        Salario AS 'Salário'
+    FROM FUNCIONARIOS;
+GO
+
+SELECT * FROM CLIENTES;
+GO
+
+SELECT * FROM MaioresSalarios;
+GO
+
+SELECT [Código do funcionário],
+	Nome,
+	Salário
+FROM MaioresSalarios
+GO
+
+--Alterando uma ViEW
+ALTER VIEW MaioresSalarios AS
+	SELECT ID AS 'Código do funcário',
+	Nome,
+	Sexo AS 'Sexo do funcionário',
+	Salario AS 'Salário'
+FROM FUNCIONARIOS
+ORDER BY Salario DESC
+OFFSET 0 ROWS;
+GO
+
+--Utilisando uma VIEW
+-- Exibe os salários acima de 1500,00
+SELECT [Código do funcário],
+Nome,
+"Sexo do Funcionário",
+Salário
+FROM MaioresSalarios
+WHERE Salário > 1500;
+GO
+
+--Exibindo informações sobre uma VIEW
+EXEC sp_helptext MaioresSalarios;
+GO
+SELECT TABLE_NAME AS 'Nome da View',
+		VIEW_DEFINITION AS 'Código SQL'
+FROM INFORMATION_SCHEMA.Views;		
+
+-- Exclui a VIEW 
+DROP VIEW MaioresSalarios;
+GO
