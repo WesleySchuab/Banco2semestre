@@ -16,10 +16,13 @@ CREATE TABLE CLIENTES (
     
 );
 
+1
 ALTER TABLE CLIENTES
     ADD DDD CHAR(2) NULL,
      Telefone CHAR(10);
 GO
+
+2
 
 UPDATE CLIENTES SET Nome = 'Ana Cristina', DDD = '12', Telefone = '3664-5060' WHERE ID = 1;
 UPDATE CLIENTES SET Nome = 'Marcos Paulo', DDD = '12', Telefone = '3664-8090' WHERE ID = 2;
@@ -36,6 +39,23 @@ UPDATE CLIENTES SET Nome = ' Maria Pereira', DDD = '11', Telefone = '99555-001' 
 UPDATE CLIENTES SET Nome = ' Lucas silva', DDD = '11', Telefone = '97890-1010' WHERE ID = 13;
 UPDATE CLIENTES SET Nome = ' Benedito Silva ', DDD = NULL , Telefone = NULL WHERE ID = 14;
 UPDATE CLIENTES SET Nome = ' Fernada Pereira ', DDD = NULL , Telefone = '98888-0102' WHERE ID = 15;
+
+3
+-- Copiar dasdos para a tabela temprária
+SELECT *
+INTO clientesCopia
+FROM CLIENTES;
+GO
+
+-- Criar a restrição
+ALTER TABLE clientesCopia
+ADD CONSTRAINT PK_clientesCopia PRIMARY KEY (ID);
+GO
+
+
+
+
+
 
 
 
