@@ -47,7 +47,7 @@ INTO clientesCopia
 FROM CLIENTES;
 GO
 
--- Criar a restrição
+-- Criar a restrição dentro da tabela copia 
 ALTER TABLE clientesCopia
 ADD CONSTRAINT PK_clientesCopia PRIMARY KEY (ID);
 GO
