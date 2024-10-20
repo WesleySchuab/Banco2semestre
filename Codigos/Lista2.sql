@@ -161,3 +161,10 @@ SELECT TOP 5
     EMAIL 
 FROM CLIENTES
 ORDER BY NOME;
+
+-- 10 Exibir todos os clientes com mais de 30 anos ordenando pelo nome, a conssulta deve exibir apenas
+-- apenas ID, Nome, Sexo, Idade e e-mail, do clientes qeu sejam do sexo masculino
+-- ao invés de ID deve exibir Código do Cliente, e Email deve exibir E-maail
+
+SELECT ID AS 'Código do Cliente', Nome, Sexo, Idade, Email AS 'E-mail' FROM CLIENTES WHERE Sexo = 'M';
+GO
