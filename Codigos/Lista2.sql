@@ -110,3 +110,11 @@ SELECT CONSTRAINT_CATALOG AS 'Banco de Dados',
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
 WHERE TABLE_NAME = 'Clientes';
 GO
+
+-- 1 Exibir todos os registros de todos os clientes
+SELECT * FROM CLIENTES ;
+GO
+
+--2 Exibir todos os registros de todos os clientes ordenando de acordo com o nome
+SELECT * FROM CLIENTES ORDER BY Nome ASC;
+GO
