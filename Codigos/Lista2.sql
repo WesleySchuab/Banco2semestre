@@ -43,5 +43,11 @@ INSERT INTO CLIENTES VALUES
 'andre@gmail.com');
 GO
 
-Msg 547, Level 16, State 0, Line 1
-The INSERT statement conflicted with the CHECK constraint "CK__CLIENTES__Idade__38996AB5". The conflict occurred in database "LojaIFSP", table "dbo.CLIENTES", column 'Idade'.
+--Msg 547, Level 16, State 0, Line 1
+--The INSERT statement conflicted with the CHECK constraint "CK__CLIENTES__Idade__38996AB5". The conflict occurred in database "LojaIFSP", table "dbo.--CLIENTES", column 'Idade'.
+
+-- OK, registros inseridos normalmente 
+INSERT INTO CLIENTES VALUES
+    (4, 'Maria Clara', 'M', 22, '44444444444',
+'maria@gmail.com');
+GO
