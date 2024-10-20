@@ -115,6 +115,10 @@ GO
 SELECT * FROM CLIENTES ;
 GO
 
---2 Exibir todos os registros de todos os clientes ordenando de acordo com o nome
+-- 2 Exibir todos os registros de todos os clientes ordenando de acordo com o nome
 SELECT * FROM CLIENTES ORDER BY Nome ASC;
+GO
+
+-- 3 Exibir todos os registros de todos os clientes ordenando de acordo com o a idade
+SELECT * FROM CLIENTES ORDER BY Idade ASC;
 GO
