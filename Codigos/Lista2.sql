@@ -90,3 +90,14 @@ INSERT INTO CLIENTES VALUES
 
     (12, 'Maria Pereira', 'F', 45, '30303030303', 'maria@bol.com.br');
 GO 
+
+-- Inseri os registro sem email
+INSERT INTO CLIENTES (ID, Nome, Sexo, Idade, CPF )
+    VALUES (13, 'Lucas Silva', 'M', 19, '40404040404'),
+            (14, 'Benedito SIlva', NULL, 44, '505050505'),
+            (15, 'Fernanda Pereira', 'F', 31, '606060606');
+GO           
+
+-- Exibi todos os registros da tabela cliente
+SELECT * FROM CLIENTES;
+GO

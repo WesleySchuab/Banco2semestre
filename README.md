@@ -15,3 +15,17 @@ Inserindo primeiro registro no banco
 
 ![Captura de tela 2024-09-16 213836](https://github.com/user-attachments/assets/42307cb9-6100-4f64-a59c-3ff52ad5f5eb)
 
+-- Exibi Infomarações sobre a estrutura da tabela 
+SELECT TABLE_CATALOG    AS 'Banco de Dados',
+        TABLE_NAME      AS 'Tabela',
+        ORDINAL_POSITION AS 'Posição',
+        COLUMN_NAME AS 'Coluna',
+        DATA_TYPE AS 'Tipo de Dados',
+        COLLATION_NAME AS 'Idioma da Coluna',
+        IS_NULLABLE AS ' Aceita Nulo ?'
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Clientes';
+GO
+print da saida no Azure
+![alt text](image.png)
+
