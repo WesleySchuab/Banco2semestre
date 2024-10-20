@@ -101,3 +101,12 @@ GO
 -- Exibi todos os registros da tabela cliente
 SELECT * FROM CLIENTES;
 GO
+
+-- Exibi as informações sobre as Restrições
+SELECT CONSTRAINT_CATALOG AS 'Banco de Dados',
+         TABLE_NAME      AS 'Tabela',
+         CONSTRAINT_TYPE AS 'Tipo de restrições',
+         CONSTRAINT_NAME AS 'Nome da Restrição'
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Clientes';
+GO
