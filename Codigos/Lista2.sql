@@ -151,3 +151,13 @@ GO
 -- ao invés de ID deve exibir Código do Cliente
 SELECT ID AS 'Código do Cliente', Nome, Idade, Email FROM CLIENTES WHERE ID >= 10;
 GO
+
+-- 9 Exibir os registros de todos os clientes cadastrados ordenando pelo nome, a consulta deve retornar apenas os 5 primeiros registros, e exibir apenas ID, Nome, Idade e e-mail, 
+-- ao invés de ID deve exibir Código do Cliente
+SELECT TOP 5 
+    ID AS "Código do Cliente", 
+    NOME, 
+    IDADE, 
+    EMAIL 
+FROM CLIENTES
+ORDER BY NOME;
