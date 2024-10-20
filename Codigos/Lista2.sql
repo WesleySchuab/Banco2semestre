@@ -60,3 +60,12 @@ GO
 
 --Msg 2627, Level 14, State 1, Line 2
 --Violation of UNIQUE KEY constraint 'UQ__CLIENTES__C1F89731F5C5D56B'. Cannot insert duplicate key in object 'dbo.CLIENTES'. The duplicate key value --is (11111111111).
+
+-- Erro devido a o valor do CPf ser nulo
+INSERT INTO CLIENTES VALUES
+    (6, 'Ricardo Lima', 'M', 52, NULL,
+'ricardo@gmail.com');
+GO
+
+Msg 515, Level 16, State 2, Line 2
+Cannot insert the value NULL into column 'CPF', table 'LojaIFSP.dbo.CLIENTES'; column does not allow nulls. INSERT fails.
