@@ -136,3 +136,7 @@ ORDER BY
         ELSE 2
     END,
     IDADE;
+
+-- 6 Escreva uma consulta que exiba nome, idade e e-mail dos clientes
+SELECT Nome, Idade, Email FROM  CLIENTES;
+GO
