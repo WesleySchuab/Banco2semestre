@@ -145,3 +145,9 @@ GO
 SELECT Nome, Idade, Email FROM  CLIENTES 
 ORDER BY Nome;
 GO
+
+-- 8 Exibir os registros de todos os clientes cujo ID maior ou igual a 10. Exibir apenas: 
+-- ID, Nome, Idade e e-mail, 
+-- ao invés de ID deve exibir Código do Cliente
+SELECT ID AS 'Código do Cliente', Nome, Idade, Email FROM CLIENTES WHERE ID >= 10;
+GO
