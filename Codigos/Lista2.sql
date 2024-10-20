@@ -29,10 +29,19 @@ GO
 
 -- Erro devido ao valor repetido da chave primaria
 INSERT INTO CLIENTES VALUES 
-(1, 'Marcos Paulo', 'M', 45, '22222222222',
+    (1, 'Marcos Paulo', 'M', 45, '22222222222',
 'marcos@gmail.com');
 GO
 
 -- Erro no azure
-Msg 2627, Level 14, State 1, Line 1
-Violation of PRIMARY KEY constraint 'PK__CLIENTES__3214EC277C3456C8'. Cannot insert duplicate key in object 'dbo.CLIENTES'. The duplicate key value is (1).
+--Msg 2627, Level 14, State 1, Line 1
+--Violation of PRIMARY KEY constraint 'PK__CLIENTES__3214EC277C3456C8'. Cannot insert duplicate key in object 'dbo.CLIENTES'. The duplicate key value --is (1).
+
+-- Erro devido a o valor da idade ser menor que 18
+INSERT INTO CLIENTES VALUES
+    (3, 'Andre Luis', 'M', 15, '33333333333',
+'andre@gmail.com');
+GO
+
+Msg 547, Level 16, State 0, Line 1
+The INSERT statement conflicted with the CHECK constraint "CK__CLIENTES__Idade__38996AB5". The conflict occurred in database "LojaIFSP", table "dbo.CLIENTES", column 'Idade'.
