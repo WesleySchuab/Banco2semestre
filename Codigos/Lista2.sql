@@ -4,3 +4,7 @@ IF DB_ID (N'LojaIFSP') IS NULL
 ELSE
     USE LojaIFSP;
 GO
+-- Exibir a data de criação e nome das tabelas
+SELECT create_date AS 'Data de Criação',
+    name AS 'Nome da Tabela'
+FROM Sys.tables 
