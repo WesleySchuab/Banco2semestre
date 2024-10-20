@@ -140,3 +140,8 @@ ORDER BY
 -- 6 Escreva uma consulta que exiba nome, idade e e-mail dos clientes
 SELECT Nome, Idade, Email FROM  CLIENTES;
 GO
+
+-- 7 Exibir nome, idade e e-mail dos clientes de todos os clientes ordenando de acordo com o nome
+SELECT Nome, Idade, Email FROM  CLIENTES 
+ORDER BY Nome;
+GO
