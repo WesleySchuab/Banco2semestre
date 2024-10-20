@@ -51,3 +51,12 @@ INSERT INTO CLIENTES VALUES
     (4, 'Maria Clara', 'M', 22, '44444444444',
 'maria@gmail.com');
 GO
+
+-- Erro devido a o valor do cpf
+INSERT INTO CLIENTES VALUES
+    (5, 'Pedro Augusto', 'M', 45, '11111111111',
+'pedro@gmail.com');
+GO
+
+--Msg 2627, Level 14, State 1, Line 2
+--Violation of UNIQUE KEY constraint 'UQ__CLIENTES__C1F89731F5C5D56B'. Cannot insert duplicate key in object 'dbo.CLIENTES'. The duplicate key value --is (11111111111).
