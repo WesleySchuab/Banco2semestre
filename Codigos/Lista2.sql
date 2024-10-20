@@ -119,6 +119,20 @@ GO
 SELECT * FROM CLIENTES ORDER BY Nome ASC;
 GO
 
--- 3 Exibir todos os registros de todos os clientes ordenando de acordo com o a idade
+-- 3 Exibir todos os registros de todos os clientes ordenando de acordo com o a idade em ordem crescente 
 SELECT * FROM CLIENTES ORDER BY Idade ASC;
 GO
+
+-- 4 Exibir todos os registros de todos os clientes ordenando de acordo com o a idade em ordem descendente 
+SELECT * FROM CLIENTES ORDER BY Idade DESC;
+GO 
+
+-- 5 Exibir todos os registros de todos os clientes ordenando de acordo com o sexo e a idade. O clientes do sexo masculino deve vir primeiro
+SELECT * 
+FROM CLIENTES
+ORDER BY 
+    CASE 
+        WHEN SEXO = 'M' THEN 1
+        ELSE 2
+    END,
+    IDADE;
