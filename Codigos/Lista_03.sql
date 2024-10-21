@@ -17,12 +17,15 @@ CREATE TABLE CLIENTES (
 );
 
 1
+-- Alterar a estrutura da tabela CLIENTES, adicionando os campos DDD e Telefone, utilize os tipos de dados CHAR(2) e CHAR (10)
 ALTER TABLE CLIENTES
     ADD DDD CHAR(2) NULL,
      Telefone CHAR(10);
 GO
 
 2
+-- Setar as informações de DDD e Telefone conforme Fig na lista de exercicios 
+-- Caso os nomes esteja corretos pode ignorar essa parte:  Nome = 'Ana Cristina', 
 
 UPDATE CLIENTES SET Nome = 'Ana Cristina', DDD = '12', Telefone = '3664-5060' WHERE ID = 1;
 UPDATE CLIENTES SET Nome = 'Marcos Paulo', DDD = '12', Telefone = '3664-8090' WHERE ID = 2;
