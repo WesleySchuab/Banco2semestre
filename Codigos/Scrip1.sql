@@ -304,3 +304,14 @@ SELECT create_date AS'Data de Criação',
        name       AS'Nome da Tabela'
 FROM sys.tables;
 go
+
+-- cria a tabela dependentes
+CREATE TABLE DEPENDENTES (
+             CodDependente INT PRIMARY KEY,
+			 Nome VARCHAR (35) NOT NULL,
+			 Sexo CHAR (1) NULL,
+			 DataNascimento DATE NOT NULL,
+			 ID INT FOREIGN KEY REFERENCES
+FUNCIONARIOS (ID)
+);
+GO
