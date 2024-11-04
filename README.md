@@ -29,3 +29,21 @@ GO
 print da saida no Azure
 ![alt text](image.png)
 
+
+Junção de tabelas 
+Tabela Funcionarios
+![alt text](image-1.png)
+
+Tabela Dependentes
+![alt text](image-2.png)
+
+--CROSS JOIN
+
+--realiza a junção cruzada entre os dados
+-- das tabela FUNCIONARIOOS E DEPENDENTES
+--Versão 1: sintaxe antiga 
+
+SELECT * FROM FUNCIONARIOS,DEPENDENTES;
+GO
+
+![alt text](image-3.png)

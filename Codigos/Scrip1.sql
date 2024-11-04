@@ -334,5 +334,18 @@ WITH (
 	 FIELDTERMINATOR = ','
 );
 GO
-SELECT * FROM dependentes;
+
+SELECT * FROM FUNCIONARIOS;
+GO
+
+SELECT * FROM DEPENDENTES;
+GO
+
+--CROSS JOIN
+
+--realiza a junção cruzada entre os dados
+-- das tabela FUNCIONARIOOS E DEPENDENTES
+--Versão 1: sintaxe antiga 
+
+SELECT * FROM FUNCIONARIOS,DEPENDENTES;
 GO
