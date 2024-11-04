@@ -287,3 +287,20 @@ FROM INFORMATION_SCHEMA.Views;
 -- Exclui a VIEW 
 DROP VIEW MaioresSalarios;
 GO
+
+--Exibe o local ondde cada banco de dados esta armazenado
+SELECT name           AS 'Banco de Dados',
+       physical_name  AS 'Diretório'
+FROM sys.master_files
+GO
+
+--HABILITA O CONTEXTO
+use [ Nome do BAnco ]
+GO
+
+--exibe a data de criação e o nome das tabelas
+--existentes no banco de dados em uso no momento
+SELECT create_date AS'Data de Criação',
+       name       AS'Nome da Tabela'
+FROM sys.tables;
+go
