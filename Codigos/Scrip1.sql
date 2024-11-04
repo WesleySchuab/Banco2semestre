@@ -315,3 +315,24 @@ CREATE TABLE DEPENDENTES (
 FUNCIONARIOS (ID)
 );
 GO
+
+--altera o formato de data do sql sever
+SET DATEFORMAT DMY;
+GO
+
+-- Insere os dados na tabela DEPENDENTES, utilizando os 
+-- dados provenientes do arquivo 'DEPENDENTES.CSV'
+-- ATENÇÃO altere o local do arquivo 'DEPENDENTES.CSV'
+-- No exemplo em sala o arquivo dependentes.csv foi salvo nesse caminho para os alunos apenas executarem 
+-- Exemplo de patch C:\Users\cj3024865\Downloads\dependentes.csv'
+
+BULK INSERT DEPENDENTES
+     FROM '/dados/dependentes.csv'
+WITH (
+     FIRSTROW = 2,
+	 DATAFILETYPE = 'widechar',
+	 FIELDTERMINATOR = ','
+);
+GO
+SELECT * FROM dependentes;
+GO
