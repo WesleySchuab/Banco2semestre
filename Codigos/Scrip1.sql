@@ -349,3 +349,90 @@ GO
 
 SELECT * FROM FUNCIONARIOS,DEPENDENTES;
 GO
+
+--Atualizada
+SELECT * FROM FUNCIONARIOS CROSS JOIN
+DEPENDENTES;
+GO
+
+-- Realiza a junção cruzada entre os dados das tabelas
+--FUNCIONARIOS E DEPENDENTES. Utiliza um alias para nomear cada tabela.
+SELECT F.ID             AS 'Código do Funcionario',
+       F.Nome           AS 'Nome do Funcionario',
+       D.Nome           AS 'Nome do Dependente',
+	   D.DataNascimento AS 'Data de Nascimento'
+FROM FUNCIONARIOS F CROSS JOIN DEPENDENTES D;
+GO
+
+-- Exibe O id, NOME E SALARIO DOS FUNCIONARIOS, JUNTO COM O NOME DO DEPENDENTE E O CODIGO DO RESPONSAVELPOR ELE.
+ --Exibe SOMENTE o registro do funcionario que possui algum dependente.
+
+ SELECT F.ID      AS 'Código do Funcionario',
+        F.Nome    AS 'Nome do funcionario',
+        F.Salario AS ' Salário',
+		D.Nome    AS 'Nome do Dependente',
+		D.ID      AS 'Código do Responsavel'
+FROM FUNCIONARIOS F JOIN DEPENDENTES D 
+    ON F.ID = D.ID;
+GO
+
+-- Exibe os dados dos funcionários e de seus dependentes, utilizando alias para nomear cada coluna. Ordena o resultado pelo nome de funcionário e do dependente.
+--exibe somente os registros dos dependentes que nasceram a partir do ano 2000.
+SELECT F.ID              AS 'Código do Funcionario',
+        F.Nome           AS 'Nome do funcionario',
+        F.Salario        AS ' Salário',
+		D.Nome           AS 'Nome do Dependente',
+		D.DataNascimento as 'Data de Nascimento',
+		D.ID             AS 'Código do Responsavel'
+FROM FUNCIONARIOS F INNER JOIN DEPENDENTES D 
+    ON F.ID = D.ID
+WHERE YEAR (D.DataNascimento) >= 2000
+ORDER BY F.Nome, D.Nome;
+GO
+
+-- Adiciona o telefone
+ALTER TABLE FUNCIONARIOS
+   ADD Telefone CHAR (10)
+GO
+
+--insere mais cinco novos funcionários
+INSERT INTO FUNCIONARIOS VALUES
+(11, 'Ana Claudia', 'F', '12/09/2011', 4900.00, '3663-9090'),
+(12, 'André Lima', 'M', '12/09/2009', 2050.00, '3664-8989'),
+(13, 'Marco Souza', 'M', '12/09/2009', 37800.00, 'NULL'),
+(14, 'Mariana Gomes', 'F', '12/09/2010', 1750.50, 'NULL'),
+(15, 'Cinthia Faria', 'F', '12/09/2016', 1750.50, '3662-1212');
+GO
+
+
+--exibe todos os registros da tabela FUNCIONARIOS
+SELECT * FROM FUNCIONARIOS
+GO
+
+--exibe as informações de todos os funcionarios, inclusive daqueles 
+--que não possuem nenhum dependente
+SELECT  F.ID              AS 'Código do Funcionario',
+        F.Nome           AS 'Nome do funcionario',
+		F.Admissao       AS'Admissão',
+        F.Salario        AS ' Salário',
+		D.Nome           AS 'Nome do Dependente',
+		D.DataNascimento as 'Data de Nascimento'
+FROM FUNCIONARIOS F LEFT OUTER JOIN DEPENDENTES D 
+    ON F.ID = D.ID;
+GO
+-- Junção de tabelas 
+-- Sintaxe baisca de um JOIN
+SELECT CAMPO1, CAMPO2, ... CAMPON
+FROM Tabela1 JOIN Tabela2
+	ON  Tabela1.PK = Tabela.FK;
+GO
+
+-- Sintaxe básica de um join envolvendo mais de duas tabelas
+-- Primeiro Subconjunto
+SELECT CAMPO1, CAMPO2, ... CAMPON
+FROM Tabela1 JOIN Tabela2
+	ON  Tabela1.PK = Tabela.FK
+	JOIN Tabela3
+		ON Tabela1.PK = Tabela3.FK;	
+GO
+
