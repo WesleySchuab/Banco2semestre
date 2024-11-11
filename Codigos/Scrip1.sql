@@ -436,3 +436,52 @@ FROM Tabela1 JOIN Tabela2
 		ON Tabela1.PK = Tabela3.FK;	
 GO
 
+-- Tipos de Join
+-- Critérios podem ser internos ou externos
+-- INNER JOIN Retorna registros de ambas as tabelas que satisfaçam uma condição.
+-- Possui seguintes tipos:
+-- Theta Join - Deseigualdade
+-- Equi Join uma condição equitativa
+-- Natural Join uma condição de igualdade
+
+-- Junção Externa
+-- Utilizado para retornar dados de ambas das tabelas que podem ou não satisfazer uma determinada condição
+-- Possui os seguintes tipos:
+-- LEFT JOIN, RIGHT JOIN, FULL JOIN
+-- CROSS JOIN
+-- Utilizado para retornar o produto carteziano entre duas tabelas
+
+-- Sintaxe do Cross Join
+ SELECT * FROM T1 CROSS JOIN T2; 
+
+-- Sintaxe do Natural Join
+ SELECT * FROM T1 Natural JOIN T2; 
+-- Retorna somentes os Registros com valores correspondente nas duas tabelas 
+-- As colunas devem ter os mesmo nomes e tipos de dados similares
+
+-- Sintaxe do Natural Join Using
+ SELECT * FROM T1 Natural JOIN T2
+Using(C1);
+-- Retorna somentes os Registros com valores correspondente na coluna indicada. No caso a coluna C1 deve exixtir em ambas as tabelas.
+
+Sintaxe do Join ON e Inner JOIN
+
+Join ON
+SELECT * FROM T1 JOIN T2 ON T1.PK = T2.FK;
+
+INNER JOIN 
+SELECT * FROM T1 INNER JOIN T2 ON T1.PK = T2.FK;
+
+-- Retorna somente os registros que atendam a uma condição de junção 
+
+Sintaxe do LEFT OUTER JOIN
+SELECT * FROM T1 LEFT OUTER JOIN T2 ON T1.PK = T2.FK; 
+-- Retorna somente os registros que atendam a uma condição de junção. 
+-- Inclui as colunas da tabela á esquerda (T1), sem que haja correspondecia de seus valores dentro da tabela da direita 
+
+Sintaxe do RIGHT OUTER JOIN
+SELECT * FROM T1 RIGHT OUTER JOIN T2 ON T1.PK = T2.FK; 
+-- Retorna somente os registros que atendam a uma condição de junção. 
+-- Inclui todas as colunas da tabela á direita (T2),...
+
+
