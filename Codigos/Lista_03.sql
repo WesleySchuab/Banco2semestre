@@ -16,14 +16,14 @@ CREATE TABLE CLIENTES (
     
 );
 
-1
+-- 1
 -- Alterar a estrutura da tabela CLIENTES, adicionando os campos DDD e Telefone, utilize os tipos de dados CHAR(2) e CHAR (10)
 ALTER TABLE CLIENTES
     ADD DDD CHAR(2) NULL,
      Telefone CHAR(10);
 GO
 
-2
+-- 2
 -- Setar as informações de DDD e Telefone conforme Fig na lista de exercicios 
 -- Caso os nomes esteja corretos pode ignorar essa parte:  Nome = 'Ana Cristina', 
 
@@ -43,7 +43,7 @@ UPDATE CLIENTES SET Nome = ' Lucas silva', DDD = '11', Telefone = '97890-1010' W
 UPDATE CLIENTES SET Nome = ' Benedito Silva ', DDD = NULL , Telefone = NULL WHERE ID = 14;
 UPDATE CLIENTES SET Nome = ' Fernada Pereira ', DDD = NULL , Telefone = '98888-0102' WHERE ID = 15;
 
-3
+-- 3
 -- Copiar dasdos para a tabela temprária
 SELECT *
 INTO clientesCopia
@@ -54,6 +54,9 @@ GO
 ALTER TABLE clientesCopia
 ADD CONSTRAINT PK_clientesCopia PRIMARY KEY (ID);
 GO
+
+-- 4
+SELECT 
 
 
 
