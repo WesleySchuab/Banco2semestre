@@ -484,4 +484,16 @@ SELECT * FROM T1 RIGHT OUTER JOIN T2 ON T1.PK = T2.FK;
 -- Retorna somente os registros que atendam a uma condição de junção. 
 -- Inclui todas as colunas da tabela á direita (T2),...
 
+Sintaxe do FULL OUTER JOIN 
+SELECT * FROM T1 FULL OUTER JOIN T2 ON T1.PK = T2.FK;
+Retorna os Registros que atendam ou não uma condição de junção. A clausula é opcional 
 
+Sintaxe do THETA JOIN 
+SELECT * FROM T1 INNER JOIN T2 ON T1.PK > T2.FK;
+Retorna somente os registros que atendam a uma condição de junção. A junção Thera não utiliza uma condição de igualdade.
+
+Junção de tabelas
+O conceito de junção é o mesmo para qualquer DER.
+
+Cláusula CROSS JOIN 
+Realiza a junção cruzada de dados das tabelas FUNCIONÁRIOS e DEPENDENTES
