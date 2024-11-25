@@ -497,3 +497,45 @@ O conceito de junção é o mesmo para qualquer DER.
 
 Cláusula CROSS JOIN 
 Realiza a junção cruzada de dados das tabelas FUNCIONÁRIOS e DEPENDENTES
+-- Versão 2 sintaxe antiga
+SELECT * FROM FUNCIONARIOS, DEPENDENTES;
+GO
+
+-- Versão 2 
+SELECT * FROM FUNCIONARIOS CROSS JOIN DEPENDENTES;
+GO
+-- Usando alias com CROSS JOIN
+SELECT F.ID AS 'Código do Funcionário ',
+	F.Nome AS 'Nome do Funcionário', 
+	D.Nome As 'Nome do Dependente ',
+	D.DataNascimento AS ' Data de Nascimento'
+FROM FUNCIONARIOS F CROSS JOIN DEPENDENTES D;
+GO
+Cláusula JOIN ON
+-- O Código abaixo exibi o ID, nome e salário dos funcionários, junto com o nome do dependente e o código do responsável 
+-- por ele. Exibi somente o registro do funcionário que possui algum dependente.
+SELECT F.ID AS 'Código do Funcionário',
+	F.Nome AS 'Nome do funcionário',
+	F.Salario AS 'Salário',
+	D.Nome AS 'Nome do Dependente',
+	D.ID AS 'Código do Responsável'
+	-- Onde ID do Funcionario for igual ID do dependente 
+FROM FUNCIONARIOS F JOIN DEPENDENTES D ON F.ID = D.ID
+
+Cláusula INNER JOIN 
+-- Exibe daddos dos funcionários e seus dependentes, utilisando aliases para nomear cada coluna
+-- Ordena o resultado pelo nome do funcionário e do dependente.
+-- Exibi somente os registros dos dependentes que nasceram apartir dos anos 20000.
+SELECT F.ID AS 'Código do Funcionário',
+	F.Nome AS 'Nome do Funcionário',
+	F.Salario AS 'Salário',
+	D.Nome AS 'Nome do Dependente',
+	D.DataNascimento AS 'Data de Nascimento',
+	D.ID AS 'Código do Responsável'
+FROM FUNCIONARIOS F INNER JOIN DEPENDENTES D
+	ON F.ID = D.ID
+WHERE YEAR(D.DataNascimento) >= 20000
+ORDER BY F.NOME, D.NOME;
+GO
+	
+
