@@ -1,41 +1,4 @@
-Pular para o conteúdo principal
-Google Sala de Aula
-Google Sala de Aula
-Banco de Dados II - CJOBDD2
-Início
-Agenda
-Minhas inscrições
-Pendentes
-C
-CJOMETP
-B
-Banco de Dados II - CJOBDD2
-C
-CJOENGA_2023-02
-A
-ADC-2023/1
-Turmas arquivadas
-Configurações
-Prova P2
-Paulo Giovani de Faria Zeferino
-•
-19:29
-Prova P2
-•
-100 pontos
-Data de entrega: 22:40
-* Instruções: realizar o download do arquivo em anexo para poder realizar a prova. Após criar o banco dados e popular suas tabelas, escrever o código SQL para cada consulta. Ao término da prova, renomear o arquivo com o seu nome (por exemplo, paulo.sql) e devolver a atividade pelo Google Classroom, anexando o arquivo SQL com as suas respostas.
 
-* Prazo limite: 22h40minutos
-
-Prova P2 - ALUNOS.sql
-Arquivo desconhecido
-Comentários da turma
-Seus trabalhos
-Atribuído
-Não é possível entregar atividades após a data de entrega
-Comentários particulares
-Detalhes da atividade
 -----------------------------------------------------------------------------------
 -- Prova P2 - 2024
 -- Prova P2 - ALUNOS.sql
@@ -44,8 +7,8 @@ Detalhes da atividade
 
 -----------------------------------------------------------------------------------
 -- Disciplina: Banco de Dados 2 (CJOBDD2)
--- Nome do aluno:
--- Data da prova:
+-- Nome do aluno: Wesley Aoki Schuab Vieira
+-- Data da prova: 02/12/2024
 -----------------------------------------------------------------------------------
 
 
@@ -62,12 +25,12 @@ GO
 
 
 -- Cria o banco de dados LOJAMARIA
-CREATE DATABASE LOJAMARIA;
+CREATE DATABASE LOJAMARIAWesley;
 GO
 
 
 -- Habilita o contexto do banco de dados
-USE LOJAMARIA;
+USE LOJAMARIAWesley;
 GO
 
 
@@ -304,7 +267,11 @@ WHERE
 -- 3. Liste o valor do maior e do menor preço para dos produtos armazenados no 
 -- banco de dados. Utilize aliases para exibir o nome das colunas. (1.0 ponto)
 
-
+SELECT 
+    MAX(ValorUnitario) AS MaiorPreco, 
+    MIN(ValorUnitario) AS MenorPreco
+FROM 
+    PRODUTOS;
 
 
 
@@ -312,7 +279,15 @@ WHERE
 -- pedido com a quantidade igual a 35 da tabela ITEM_DE_PEDIDO. Utilize aliases 
 -- para exibir o nome das colunas. (1.0 ponto)
 
-
+SELECT NumeroPedido CodigoProduto
+SELECT 
+    NumeroPedido AS Pedido,
+    CodigoProduto AS Produto,
+    Quantidade AS Quantidade
+FROM 
+    ITEM_DE_PEDIDO
+WHERE 
+    Quantidade = 35;
 
 
 
@@ -320,13 +295,38 @@ WHERE
 -- F ou M. Ordene o resultado pelo nome do vendedor. Utilize aliases para exibir 
 -- o nome das colunas. (1.0 ponto)
 
-
+SELECT 
+    CodigoVendedor AS Codigo,
+    NomeVendedor AS Nome,
+    Salario AS Salario
+FROM 
+    VENDEDORES
+WHERE 
+    NomeVendedor LIKE 'A%' OR
+    NomeVendedor LIKE 'C%' OR
+    NomeVendedor LIKE 'F%' OR
+    NomeVendedor LIKE 'M%'
+ORDER BY 
+    NomeVendedor;
 
 
 
 -- 6. Listar todos os dados dos clientes que não tenham número de inscrição 
 -- estadual (IE). (1.0 ponto)
 
+SELECT 
+    CodigoCliente AS Codigo,
+    NomeCliente AS Nome,
+    Endereco AS Endereco,
+    Cidade AS Cidade,
+    Cep AS CEP,
+    UF AS Estado,
+    CNPJ AS CNPJ,
+    IE AS Inscricao_Estadual
+FROM 
+    CLIENTES
+WHERE 
+    IE IS NULL;
 
 
 
@@ -335,16 +335,29 @@ WHERE
 -- existem em cada pedido e o total geral de itens que existem em cada pedido.
 -- Utilize aliases para exibir o nome das colunas. (1.0 ponto)
 
-
-
+SELECT 
+    NumeroPedido AS Pedido,
+    COUNT(CodigoProduto) AS Total_Produtos_Diferentes,
+    SUM(Quantidade) AS Total_Itens
+FROM 
+    ITEM_DE_PEDIDO
+GROUP BY 
+    NumeroPedido;
 
 
 -- 8. Exibir o código, nome, salário e média salarial dos vendedores. Exibir
 -- somente as informações dos vendedores que ganham acima da média salarial.
 -- Utilize aliases para exibir o nome das colunas. (1.5 pontos)
 
-
-
+SELECT 
+    CodigoVendedor AS Codigo,
+    NomeVendedor AS Nome,
+    Salario AS Salario,
+    (SELECT AVG(Salario) FROM VENDEDORES) AS Media_Salarial
+FROM 
+    VENDEDORES
+WHERE 
+    Salario > (SELECT AVG(Salario) FROM VENDEDORES);
 
 
 -- 9. Exibir o código do cliente, seu nome, o produto que ele comprou, o valor
@@ -354,8 +367,31 @@ WHERE
 -- que foram comprados, o prazo de entrega do pedido e o nome do vendedor.
 -- Utilize aliases para exibir o nome das colunas. (2.0 pontos)
 
-
-
+SELECT 
+    C.CodigoCliente AS Codigo_Cliente,
+    C.NomeCliente AS Nome_Cliente,
+    P.DescricaoProduto AS Produto,
+    P.ValorUnitario AS Valor_Unitario,
+    I.Quantidade AS Quantidade_Comprada,
+    (P.ValorUnitario * I.Quantidade) AS Valor_Total,
+    PD.PrazoEntrega AS Prazo_Entrega,
+    V.NomeVendedor AS Nome_Vendedor
+FROM 
+    ITEM_DE_PEDIDO I
+JOIN 
+    PRODUTOS P ON I.CodigoProduto = P.CodigoProduto
+JOIN 
+    PEDIDOS PD ON I.NumeroPedido = PD.NumeroPedido
+JOIN 
+    CLIENTES C ON PD.CodigoCliente = C.CodigoCliente
+JOIN 
+    VENDEDORES V ON PD.CodigoVendedor = V.CodigoVendedor
+ORDER BY 
+    C.NomeCliente,
+    P.DescricaoProduto,
+    I.Quantidade,
+    PD.PrazoEntrega,
+    V.NomeVendedor;
 
 
 -----------------------------------------------------------------------------------
