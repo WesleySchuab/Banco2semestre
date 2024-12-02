@@ -482,11 +482,15 @@ SELECT * FROM T1 LEFT OUTER JOIN T2 ON T1.PK = T2.FK;
 Sintaxe do RIGHT OUTER JOIN
 SELECT * FROM T1 RIGHT OUTER JOIN T2 ON T1.PK = T2.FK; 
 -- Retorna somente os registros que atendam a uma condição de junção. 
--- Inclui todas as colunas da tabela á direita (T2),...
+-- Inclui todas as colunas da tabela á direita (T2), sem haja correspondencia dos seus valores dentro da tabela da esquerda (T1),
+-- A cláusula Outer é opcional.
+Sintaxe do FUll Outer Join
+SELECT * FROM T1 FULL OUTER JOIN T2 ON T1.PK = T2.FK; 
+-- Retorna os Registros que atendam ou não a uma condição de junção. A clausula OUTER  é opcional.
 
-Sintaxe do FULL OUTER JOIN 
-SELECT * FROM T1 FULL OUTER JOIN T2 ON T1.PK = T2.FK;
-Retorna os Registros que atendam ou não uma condição de junção. A clausula é opcional 
+Sintaxe do THETA Join 
+SELECT * FROM T1 INNER JOIN T2 ON T1.PK > T2.FK;
+Retorna somente os registros que atendam a uma condição de junção.  A junção Theta não utiliza uma condição de igualdade.
 
 Sintaxe do THETA JOIN 
 SELECT * FROM T1 INNER JOIN T2 ON T1.PK > T2.FK;
